@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* STYLES */
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+    
+}
+.searchico {
+    background-image: url('./images/search.png');
+    background-repeat: no-repeat;
+    background-position:  98% 50%;
+    
+   
+
+}
