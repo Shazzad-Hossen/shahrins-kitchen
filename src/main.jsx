@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import _404NotFound from './pages/_404NotFound/_404NotFound';
 import Details from './pages/Details/Details';
 import About from './pages/About/About';
+import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       element: <About></About> ,
      },
      { path: '*', element: <_404NotFound></_404NotFound>},
+     
 
     ]
   },

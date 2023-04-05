@@ -1,12 +1,16 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData,useNavigation } from 'react-router-dom';
 import Ingridiants from '../../components/Ingridiants/Ingridiants';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 const Details = () => {
 
     const data= useLoaderData();
-    console.log(data.meals[0])
+    const navigation = useNavigation();
+    console.log(navigation.state)
     const {strCategory ,strMealThumb, strMeal, strInstructions, strYoutube,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10, strIngredient11, strIngredient12, strIngredient13,strIngredient14, strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10, strMeasure11,strMeasure12,strMeasure13,strMeasure14}=data.meals[0];
+
+    if(navigation.state === "loading")  return <LoadingSpinner></LoadingSpinner>
     
     return (
         <div className='p-10'>

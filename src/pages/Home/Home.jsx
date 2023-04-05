@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData,useNavigation  } from 'react-router-dom';
 import Card from '../../components/Card/Card';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 const Home = () => {
     
     const [meals,setMeals]= useState(useLoaderData().meals)
     const [isFound,setIsFound]= useState(true)
-    console.log(meals)
+    const navigation = useNavigation();
+    console.log(navigation.state)
     const keydownHandler= (e)=>{
         if (e.key === 'Enter') {
            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${e.target.value}`)
@@ -26,9 +28,13 @@ const Home = () => {
            })
         }
     }
+
     
+    if(navigation.state === "loading") return <LoadingSpinner></LoadingSpinner>
     return (
         <div>
+
+           
 
            
             
